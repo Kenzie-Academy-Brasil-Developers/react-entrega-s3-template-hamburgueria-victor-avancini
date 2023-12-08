@@ -1,0 +1,43 @@
+header {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    height: 5rem;
+    padding: 0 clamp(2rem, -2.286rem + 11.429vw, 8rem);
+
+    img {
+        height: 1.375rem;
+    }
+
+    div {
+        display: flex;
+        gap: 1rem;
+    }
+
+    .shoppingCart {
+        position: relative;
+        color: #BDBDBD;
+        border: none;
+        background-color: transparent;
+        cursor: pointer;
+
+        span {
+            position: absolute;
+            top: -0.8125rem;
+            right: -0.3125rem;
+            width: 1.25rem;
+            height: 1.5rem;
+            border-radius: 7px;
+            color: white;
+            font-weight: bold;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+    }
+
+    form {
+        display: flex;
+        gap: 1rem;
+    }
+}

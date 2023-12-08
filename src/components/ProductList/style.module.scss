@@ -1,0 +1,17 @@
+ul {
+    list-style-type: none;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-between;
+    padding: 0 clamp(2rem, -2.286rem + 11.429vw, 8rem);
+    gap: 1rem;
+    padding-bottom: 20px;
+}
+
+@media (max-width: 425px) {
+    ul {
+        display: flex;
+        flex-wrap: nowrap;
+        overflow-x: auto;
+    }
+}

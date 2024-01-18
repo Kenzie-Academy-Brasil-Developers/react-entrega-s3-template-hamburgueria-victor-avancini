@@ -3,6 +3,8 @@ import { CartModal } from "../../components/CartModal";
 import { Header } from "../../components/Header";
 import { ProductList } from "../../components/ProductList";
 import { api } from "../../services/api";
+import { toast } from "react-toastify";
+import 'react-toastify/dist/ReactToastify.css';
 
 export const HomePage = () => {
    const saveProducts = JSON.parse(localStorage.getItem("@CARTLIST"));
@@ -41,9 +43,11 @@ export const HomePage = () => {
    }
 
    const addToCart = (product) => {
-      if (!productInCart(product)) {
+      if (productInCart(product)) {
+         toast.warning(`${product.name} já está no carrinho!`)
+      } else {
          setCartList((prevCartList) => [...prevCartList, product]);
-         setCartItemCount((prevItemCount) => prevItemCount + 1);
+         toast.success(`${product.name} foi adicionado ao carrinho!`)
       }
    };
 
@@ -54,13 +58,11 @@ export const HomePage = () => {
          const updatedCart = [...cartList];
          updatedCart.splice(itemIndex, 1);
          setCartList(updatedCart);
-         setCartItemCount(updatedCart.length);
       }
    };
 
    const removeAllFromCart = () => {
       setCartList([]);
-      setCartItemCount(0);
    }
 
    const calculateTotal = () => {
